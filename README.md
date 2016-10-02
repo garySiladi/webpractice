@@ -1,6 +1,6 @@
-# Practice for JS Dev
+# Practice for web dev
 
-Boostrapped project
+Base project
 
 ## Prepare the project:
 
@@ -12,11 +12,10 @@ Be polite and disciplined in programming, by choosing and enforcing code convent
 
 ## Requirements:
 
-To make this assignement useful you're going to create a personal portfolio page,
-and also include with flat file blog.
+To make this assignment useful you're going to create a personal portfolio page, with simple blog.
 
 - It has to contain several pages: "landing", "about", "list of blog posts" and individual "blog post"
-- There are no guidlines for graphical design, make it look representative
+- There are no guidelines for graphical design, make it look representative
 - The frontend have to be made using `React.js` and built with `webpack`
 - Communication between backend and frontend have to be done through REST API
 - The blog posts data can be stored in flat files (hint: `markdown`), choose a conventions to organize them
@@ -27,6 +26,7 @@ and also include with flat file blog.
 
 Bonus points:
 
+- Pay attention to your dev environment, choice of text editor, etc.
 - `Redux` for state management
 
 ### Tooling:
@@ -40,8 +40,8 @@ Minimal set of tools is defined in `package.json`, these tools should make your 
 
 ### Helpers:
 
-- Mozilla developer network (mdn) is the documentation source to go
+- Mozilla developer network (MDN) is the documentation source to go
 - Get inspired by `lodash` and ES6 when looking for how to do certain operations in JS
 - Specifications are your friends for web trio HTML/JS/CSS
 - Take a look at JS Promises
-- `fetch` API can be used for transfering data between client and server
+- `fetch` API can be used for transferring data between client and server
