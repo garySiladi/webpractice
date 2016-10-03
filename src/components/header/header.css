@@ -1,0 +1,10 @@
+@import '../../css/colors';
+
+.header{
+  color: var(--mainColor);
+  width: 100%;
+  text-align: center;
+  background-color: var(--borderTop);
+  padding: 20px 0;
+  cursor: pointer;
+}

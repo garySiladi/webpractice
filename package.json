@@ -7,7 +7,19 @@
     "frontend",
     "react"
   ],
-  "author": "Your mom!",
+  "config": {
+    "css": {
+      "options": "-u postcss-import -u postcss-url -u postcss-cssnext -u postcss-reporter"
+    }
+  },
+  "directories": {
+    "build": "build"
+  },
+  "presets": [
+    "es2015",
+    "react"
+  ],
+  "author": "Gergely Siladi",
   "license": "MIT",
   "engines": {
     "node": ">= 6.5.0"
@@ -44,16 +56,16 @@
     "webpack-dev-server": "1.16.1"
   },
   "scripts": {
-    "build": "echo hi5",
-    "cleanup": "",
-    "copy": "",
-    "copy:html": "",
-    "dev": "",
+    "build": "npm run copy:html",
+    "cleanup": "rm -rf build && mkdir build",
+    "build:css": "postcss $npm_package_config_css_options -o $npm_package_directories_build/style.css src/css/index.css",
+    "copy:html": "cp src/index.html build/",
+    "dev": "npm run cleanup && npm run build && NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --inline --open",
     "lint": "",
     "lint:js": "",
     "lint:css": "",
     "postinstall": "npm run build",
-    "start:": "",
-    "test": ""
+    "start": "npm run build && NODE_ENV=production webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
