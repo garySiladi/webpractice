@@ -2,19 +2,12 @@
 @import 'colors';
 @import 'fonts';
 
-html{
+html {
   border-top: 5px solid var(--borderTop);
 }
 
-body{
+body {
   background: url('../images/bg.png');
   margin: 0 auto;
-  max-width: 1000px;
   display: block;
-}
-
-@media (--small-viewport){
-  body{
-    background-color: red;
-  }
 }

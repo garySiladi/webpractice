@@ -25,10 +25,16 @@
     "node": ">= 6.5.0"
   },
   "main": "src/server/index.js",
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard"
+    ]
+  },
   "dependencies": {
     "express": "^4.14.0",
     "lodash": "^4.16.2",
     "react": "^15.3.2",
+    "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0"
@@ -58,12 +64,12 @@
   "scripts": {
     "build": "npm run copy:html",
     "cleanup": "rm -rf build && mkdir build",
-    "build:css": "postcss $npm_package_config_css_options -o $npm_package_directories_build/style.css src/css/index.css",
-    "copy:html": "cp src/index.html build/",
+    "build:css": "postcss $npm_package_config_css_options -o $npm_package_directories_build/style.css src/client/css/index.css",
+    "copy:html": "cp src/client/index.html build/",
     "dev": "npm run cleanup && npm run build && NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --inline --open",
     "lint": "",
     "lint:js": "",
-    "lint:css": "",
+    "lint:css": "stylelint src/client/css/index.css",
     "postinstall": "npm run build",
     "start": "npm run build && NODE_ENV=production webpack --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
