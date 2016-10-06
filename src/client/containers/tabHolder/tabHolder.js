@@ -6,7 +6,7 @@ import { selectTab } from '../../actions/actionsHeader.js';
 
 class TabHolder extends React.Component {
 
-  renderTabs() {
+  createTabs() {
     return this.props.tabs.map((tabName, i) => (
         <NavItem
           key={tabName}
@@ -23,7 +23,7 @@ class TabHolder extends React.Component {
   render() {
     return (
       <Nav pullRight activeKey={this.props.selectedNavTab}>
-        {this.renderTabs()}
+        {this.createTabs()}
       </Nav>
     );
   }

@@ -7,8 +7,13 @@ import allReducers from './reducers';
 import App from './components/app/index.js';
 require('./css/index.css')
 
+const logger = createLogger();
 const store = createStore(
-  allReducers
+  allReducers,
+  compose(
+    applyMiddleware(logger),
+    window.devToolsExtension ? window.devToolsExtension() : fn => fn
+  )
 );
 
 ReactDOM.render(
