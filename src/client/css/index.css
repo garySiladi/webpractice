@@ -3,7 +3,11 @@
 @import 'fonts';
 
 body {
-  background: url('../images/bg.png');
   margin: 0 auto;
   display: block;
+  background-color: var(--mainColor);
+}
+
+main {
+  height: 100%;
 }

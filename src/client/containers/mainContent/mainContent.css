@@ -1,7 +1,40 @@
-.sdasd {
-  display: block;
-  height: 1000px;
-  font-size: 2em;
-  font-family: 'Open Sans', sans-serif;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+.jumbotron {
+  text-align: center;
+
+  & img {
+    max-width: 200px;
+    margin: 20px;
+  }
+
+  & p {
+    letter-spacing: 0.5em;
+  }
+
+  & span {
+    padding: 5px 10px;
+    font-size: 100%;
+    text-align: center;
+    margin-right: -0.5em;
+
+    &:nth-child(2) {
+      border-left: 1px solid black;
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .jumbotron {
+    & span {
+      padding: 10px 30px;
+      margin-right: -1em;
+
+      &:nth-child(2) {
+        border-left: 2px solid black;
+      }
+    }
+
+    & p {
+      letter-spacing: 1em;
+    }
+  }
 }

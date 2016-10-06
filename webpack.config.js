@@ -36,13 +36,13 @@ var config = {
       ]
   },
   postcss: webpack => [
-    postcssImport({
-                addDependencyTo: webpack
-            }),
-    require('postcss-import'),
-    require('postcss-cssnext')({
-      browsers: ['ie >= 10', 'last 3 versions']
-  })],
+      require('postcss-import')({
+        addDependencyTo: webpack
+      }),
+      require('postcss-cssnext')({
+        browsers: ['ie >= 10', 'last 3 versions']
+      })
+    ],
   devServer: {
     contentBase: './build/',
     host: HOST,

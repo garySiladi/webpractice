@@ -2,8 +2,11 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Nav, NavItem, Navbar } from 'react-bootstrap';
+import MainAbout from '../../components/mainAbout.js';
+import MainBlogposts from '../../components/mainBlogposts.js';
 import MainProjects from '../../components/mainProjects.js';
 require ("./mainContent.css");
+
 
 class MainContent extends React.Component {
 
@@ -12,6 +15,11 @@ class MainContent extends React.Component {
   }
 
   checkSubPage(){
+    switch (this.props.selectedNavTab){
+      case "About": return <MainAbout/>;
+      case "Portfolio": return <MainProjects/>;
+      case "Blogposts": return <MainBlogposts/>;
+    }
     return(
       <div>
         {this.props.selectedNavTab}
@@ -22,7 +30,7 @@ class MainContent extends React.Component {
   render(){
 
     return(
-      <div>
+      <div className="container">
         {this.checkSubPage()}
       </div>
     );

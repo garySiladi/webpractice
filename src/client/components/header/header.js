@@ -4,15 +4,14 @@ import TabHolder from '../../containers/tabHolder/tabHolder.js';
 require("./header.css");
 
 const tabNames = [
-    "Projects",
-    "Blogposts",
-    "Blog",
-    "About"
+    "About",
+    "Portfolio",
+    "Blogposts"
 ];
 
 const Header = () => (
     <div className="mainNavbar">
-        <Navbar staticTop>
+        <Navbar staticTop inverse>
             <Navbar.Header>
                 <Navbar.Brand>
                     <a href="#">

@@ -66,7 +66,7 @@
     "cleanup": "rm -rf build && mkdir build",
     "build:css": "postcss $npm_package_config_css_options -o $npm_package_directories_build/style.css src/client/css/index.css",
     "copy:html": "cp src/client/index.html build/",
-    "dev": "npm run cleanup && npm run build && NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --inline --open",
+    "dev": "npm run cleanup && npm run build && NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --inline --open --host 172.17.123.36",
     "lint": "",
     "lint:js": "",
     "lint:css": "stylelint src/client/css/index.css",
