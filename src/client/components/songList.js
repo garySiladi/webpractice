@@ -17,7 +17,6 @@ class SongList extends React.Component {
   }
 
   render(){
-    {console.log(this.props)};
     return(
       <Row className="songList">
         {this.renderSongs()}

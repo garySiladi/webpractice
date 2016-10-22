@@ -7,32 +7,38 @@ body {
   display: block;
   min-width: 320px;
 }
-#root{
+
+#root {
   min-height: 100%;
   background-image: url('../images/header.jpg');
   background-position: center;
   background-size: cover;
   position: static;
 }
+
 html,
 body {
   height: 100%;
   width: 100%;
 }
+
 a {
   transition: all 0.35s;
   color: var(--mainColor);
 }
+
 a:hover,
 a:focus {
   text-decoration: none;
   color: var(--mainColor);
 }
+
 p {
   font-size: 20px;
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
 .text-faded {
   color: rgba(255, 255, 255, 0.7);
 }

@@ -17,7 +17,6 @@ class ContactList extends React.Component {
   }
 
   render(){
-    {console.log(this.props)};
     return(
       <div className="contactsRow">
         {this.renderContacts()}

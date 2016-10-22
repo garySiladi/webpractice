@@ -10,6 +10,9 @@
   "config": {
     "css": {
       "options": "-u postcss-import -u postcss-url -u postcss-cssnext -u postcss-reporter"
+    },
+    "ghooks": {
+      "pre-commit": "npm run lint"
     }
   },
   "directories": {
@@ -48,9 +51,11 @@
     "chai": "3.5.0",
     "css-loader": "0.25.0",
     "eslint": "3.7.0",
+    "eslint-config-google": "^0.7.0",
     "eslint-plugin-babel": "3.3.0",
     "eslint-plugin-react": "6.3.0",
     "file-loader": "0.9.0",
+    "ghooks": "^1.3.2",
     "mocha": "3.1.0",
     "postcss": "5.2.4",
     "postcss-cssnext": "2.8.0",
@@ -67,8 +72,8 @@
     "build:css": "postcss $npm_package_config_css_options -o $npm_package_directories_build/style.css src/client/css/index.css",
     "copy:html": "cp src/client/index.html build/",
     "dev": "npm run cleanup && npm run build && NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --inline --open --host localhost",
-    "lint": "",
-    "lint:js": "",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint .",
     "lint:css": "stylelint src/client/css/index.css",
     "postinstall": "npm run build",
     "start": "npm run build && NODE_ENV=production webpack --config webpack.config.js",
