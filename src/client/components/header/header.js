@@ -11,13 +11,8 @@ const tabNames = [
 
 const Header = () => (
     <div className="mainNavbar">
-        <Navbar staticTop inverse>
+        <Navbar fixedTop>
             <Navbar.Header>
-                <Navbar.Brand>
-                    <a href="#">
-                        <Image className="sitelogo" src={require('../../images/logo.png')}/>
-                    </a>
-                </Navbar.Brand>
                 <Navbar.Toggle />
             </Navbar.Header>
             <Navbar.Collapse>

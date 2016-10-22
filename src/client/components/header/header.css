@@ -1,10 +1,24 @@
 @import '../../css/colors';
 
-.sitelogo {
-  height: 100%;
-  image-rendering: auto;
+.navbar {
+  margin-bottom: 0;
 }
 
-.navbar-brand {
-  padding: 5px 15px;
+.container>.navbar-header {
+  background-color: var(--mainColor);
+}
+
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: var(--mainColor);
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+  background-color: var(--mainColor);
 }

@@ -6,7 +6,7 @@ import MainAbout from '../../components/mainAbout.js';
 import MainBlogposts from '../../components/mainBlogposts.js';
 import MainProjects from '../../components/mainProjects.js';
 require ("./mainContent.css");
-
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 class MainContent extends React.Component {
 
@@ -16,9 +16,9 @@ class MainContent extends React.Component {
 
   checkSubPage(){
     switch (this.props.selectedNavTab){
-      case "About": return <MainAbout/>;
-      case "Portfolio": return <MainProjects/>;
-      case "Blogposts": return <MainBlogposts/>;
+      case "About": return <MainAbout key="1"/>;
+      case "Portfolio": return <MainProjects key="2"/>;
+      case "Blogposts": return <MainBlogposts key="3"/>;
     }
     return(
       <div>
@@ -30,8 +30,14 @@ class MainContent extends React.Component {
   render(){
 
     return(
-      <div className="container">
-        {this.checkSubPage()}
+      <div className="container-fluid mainContainer">
+        <ReactCSSTransitionGroup
+          transitionName="mainContentAnimation"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={500}>
+          {this.checkSubPage()}
+        </ReactCSSTransitionGroup>
+
       </div>
     );
   }

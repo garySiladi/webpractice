@@ -6,6 +6,7 @@ import createLogger from 'redux-logger';
 import allReducers from './reducers';
 import App from './components/app/index.js';
 require('./css/index.css')
+require('../client/css/font-awesome/css/font-awesome.css');
 
 const logger = createLogger();
 const store = createStore(
