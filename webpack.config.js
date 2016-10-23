@@ -1,19 +1,26 @@
+'use strict';
+
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = 'localhost';
 const PORT = '4000';
 
 var BUILD_DIR = path.resolve(__dirname, 'build/');
-var APP_DIR = path.resolve(__dirname, 'src/client/');
+var APP_DIR = path.resolve(__dirname, 'src', 'client', 'index.jsx');
 var postcssImport = require('postcss-import');
 
 var config = {
-  devtool: 'source-map',
-  entry: APP_DIR + '/index.jsx',
+  devtool: 'eval-source-map',
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    APP_DIR
+  ],
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
          loaders: [{
@@ -24,6 +31,10 @@ var config = {
               {
                   presets:['es2015', 'react']
               }
+         },
+         {
+           test: /\.json?$/,
+           loader: 'json'
          },
          {
            test: /\.css$/,
@@ -62,21 +73,20 @@ var config = {
       require('postcss-cssnext')({
         browsers: ['ie >= 10', 'last 3 versions']
       })
-    ],
-  devServer: {
-    contentBase: './build/',
-    host: HOST,
-    port: PORT,
-    historyApiFallback: true
-  },
-  plugins: [
-  new webpack.DefinePlugin({
-      'process.env': {
-        // This has effect on the react lib size
-        'NODE_ENV': JSON.stringify('production'),
-      }
-    }),
   ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/client/index.html',
+      inject: 'body',
+      filename: 'index.html'
+    }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('development')
+    })
+  ]
 };
 
 module.exports = config;
