@@ -11,7 +11,7 @@ module.exports = {
     path.join(__dirname, '/src/client/index.jsx')
   ],
   output: {
-    path: path.join(__dirname, '/build/'),
+    path: path.join(__dirname, '/public/'),
     filename: '[name]-[hash].min.js',
     publicPath: '/'
   },

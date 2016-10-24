@@ -84,15 +84,15 @@
   },
   "scripts": {
     "start": "node server",
-    "build": "rimraf build && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "cleanup": "rm -rf build && mkdir build",
+    "build": "rimraf public && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "cleanup": "rm -rf public && mkdir public",
     "build:css": "postcss $npm_package_config_css_options -o $npm_package_directories_build/style.css src/client/css/index.css",
-    "copy:html": "cp src/client/index.html build/",
+    "copy:html": "cp src/client/index.html public/",
     "dev": "npm run cleanup && NODE_ENV=development webpack-dev-server --config webpack.config.js --hot --inline --open --host localhost",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint .",
     "lint:css": "stylelint src/client/css/index.css",
-    "postinstall": "webpack -p --config ./webpack.production.config.js --progress",
+    "postinstall": "webpack -p --config ./webpack.production.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

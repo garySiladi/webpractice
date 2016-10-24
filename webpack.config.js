@@ -7,7 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const HOST = 'localhost';
 const PORT = '4000';
 
-var BUILD_DIR = path.resolve(__dirname, 'build/');
+var BUILD_DIR = path.resolve(__dirname, 'public/');
 var APP_DIR = path.resolve(__dirname, 'src', 'client', 'index.jsx');
 var postcssImport = require('postcss-import');
 
