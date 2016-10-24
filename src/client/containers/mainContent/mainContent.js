@@ -10,10 +10,6 @@ var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 class MainContent extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   checkSubPage(){
     switch (this.props.selectedNavTab){
       case "About": return <MainAbout key="1"/>;

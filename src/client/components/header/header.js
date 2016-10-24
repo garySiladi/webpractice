@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, Image, NavItem } from 'react-bootstrap';
-import TabHolder from '../../containers/tabHolder/tabHolder.js';
+import { browserHistory, Link } from 'react-router';
+import { LinkContainer } from 'react-router-bootstrap';
 require("./header.css");
 
 const tabNames = [
@@ -16,7 +17,17 @@ const Header = () => (
                 <Navbar.Toggle />
             </Navbar.Header>
             <Navbar.Collapse>
-              <TabHolder tabs={tabNames}/>
+              <Nav pullRight>
+                <LinkContainer to={{ pathname: '/'}}>
+                  <NavItem eventKey={1}>About</NavItem>
+                </LinkContainer>
+                <LinkContainer to={{ pathname: '/portfolio'}}>
+                  <NavItem eventKey={2}>Portfolio</NavItem>
+                </LinkContainer>
+                <LinkContainer to={{ pathname: '/blogposts'}}>
+                  <NavItem eventKey={3}>Blogposts</NavItem>
+                </LinkContainer>
+              </Nav>
             </Navbar.Collapse>
         </Navbar>
     </div>

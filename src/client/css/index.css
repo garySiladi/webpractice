@@ -8,6 +8,10 @@ body {
   min-width: 320px;
 }
 
+main {
+  padding-top: 50px;
+}
+
 #root {
   min-height: 100%;
   background-image: url('../images/header.jpg');
@@ -47,4 +51,22 @@ iframe {
   border-color: transparent;
   border-width: 0;
   position: relative;
+}
+
+.mainContentAnimation-enter {
+  opacity: 0.01;
+}
+
+.mainContentAnimation-enter.mainContentAnimation-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.mainContentAnimation-leave {
+  opacity: 1;
+}
+
+.mainContentAnimation-leave.mainContentAnimation-leave-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
 }
