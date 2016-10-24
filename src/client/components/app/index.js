@@ -1,13 +1,11 @@
 import React from 'react';
 import Header from '../header/header.js';
-import MainContent from '../../containers/mainContent/mainContent.js';
 import { Router, Route, IndexRoute, browserHistory, hashHistory, applyRouterMiddleware } from "react-router";
 import MainLayout from '../mainLayout.js';
 import MainAbout from '../mainAbout.js';
 import MainBlogposts from '../mainBlogposts.js';
 import MainProjects from '../mainProjects.js';
-import {useTransitions, withTransition} from 'react-router-transitions';
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+require('./app.css');
 
 const App = () => (
   <Router

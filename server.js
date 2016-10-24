@@ -3,7 +3,7 @@ const express = require('express');
 const webpack = require('webpack');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 5000 : process.env.PORT;
+const port = 5000;
 const app = express();
 
 if (isDeveloping) {
@@ -27,13 +27,13 @@ if (isDeveloping) {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
   app.get('*', function response(req, res) {
-    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'build/index.html')));
+    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'public/index.html')));
     res.end();
   });
 } else {
-  app.use(express.static(__dirname + '/build'));
+  app.use(express.static(__dirname + '/public'));
   app.get('*', function response(req, res) {
-    res.sendFile(path.join('build/index.html'));
+    res.sendFile(path.join('public/index.html'));
   });
 }
 
