@@ -4,15 +4,15 @@ class ContactList extends React.Component {
 
   renderContacts(){
     let contactlist = [];
-    this.props.contacts.forEach(contact => {
-                contactlist.push(
-                  <div className="contactElement">
-                    <a href={contact.url}>
-                      <i className={contact.class}></i>
-                    </a>
-                  </div>
-                );
-    });
+    this.props.contacts.forEach(function (contact,i) {
+              contactlist.push(
+                <div className="contactElement" key={i}>
+                  <a href={contact.url}>
+                    <i className={contact.class}></i>
+                  </a>
+                </div>
+              );
+            });
     return contactlist;
   }
 
