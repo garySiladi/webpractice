@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
-import SelectedTabReducer from './navbarSelectedTab.js';
+import blogPageReducer from './reducer-blogs.js';
+import selectedBlogPageReducer from './reducer-selected-blog.js';
 
 const allReducers = combineReducers({
-  selectedNavTab : SelectedTabReducer
+  blogPages: blogPageReducer,
+  selectedBlogPage: selectedBlogPageReducer
 });
 
 export default allReducers;

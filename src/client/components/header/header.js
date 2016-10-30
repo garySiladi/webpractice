@@ -12,7 +12,7 @@ const tabNames = [
 
 const Header = () => (
     <div className="mainNavbar">
-        <Navbar fixedTop>
+        <Navbar>
             <Navbar.Header>
                 <Navbar.Toggle />
             </Navbar.Header>

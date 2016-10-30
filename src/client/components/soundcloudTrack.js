@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ScLink = (songlink) => (
+const EmbedTrack = (songlink) => (
   <div className="soundcloudContainer">
     <div className="lazyLoad" />
     <iframe
@@ -12,4 +12,4 @@ const ScLink = (songlink) => (
   </div>
 );
 
-export default ScLink;
+export default EmbedTrack;

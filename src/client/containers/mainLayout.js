@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from './header/header.js';
+import Header from '../components/header/header.js';
 
-var MainLayout = React.createClass({
-  render: function() {
-    return (
+class MainLayout extends React.Component {
+  render(){
+    return(
       <div>
         <header>
           <Header/>
@@ -14,6 +14,6 @@ var MainLayout = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default MainLayout;

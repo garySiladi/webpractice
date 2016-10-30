@@ -1,5 +1,5 @@
 import React from 'react';
-import ScLink from './soundcloudTrack.js';
+import EmbedTrack from './soundcloudTrack.js';
 import { Row, Col } from 'react-bootstrap';
 
 class SongList extends React.Component {
@@ -9,7 +9,7 @@ class SongList extends React.Component {
     this.props.songs.forEach(function (song, i) {
               songlist.push(
                 <Col key={i} md={4} sm={6} xs={12}>
-                  <ScLink songlink={song}/>
+                  <EmbedTrack songlink={song}/>
                 </Col>
               );
             });

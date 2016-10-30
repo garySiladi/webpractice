@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col, Image } from 'react-bootstrap';
-import ContactList from './contactList.js';
+import ContactList from '../components/contactList.js';
 
 const contacts = [
   {url: 'https://www.facebook.com/gergelysiladi', class: 'fa fa-facebook-official'},
