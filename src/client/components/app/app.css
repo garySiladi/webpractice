@@ -35,7 +35,201 @@
   }
 }
 
-@media (min-width: 700px) {
+.mainContainer {
+  padding-top: 70px;
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  & .soundcloudContainer {
+    background-color: var(--soundCloud);
+    width: 300px;
+    margin: auto;
+  }
+  & h1 {
+    position: fixed;
+    text-align: center;
+    width: inherit;
+    color: var(--mainColor);
+    margin-top: -0.5%;
+  }
+}
+
+.contactsRow {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.contactElement {
+  display: inline-block;
+  margin: 10px;
+  & i {
+    transition: 0.2s;
+  }
+  &:hover i{
+    color: var(--lowerBlue);
+  }
+}
+
+.lazyLoad {
+  position: absolute;
+  margin: auto;
+  background-color: var(--soundCloud);
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: url('../../images/loading.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  height: 300px;
+  width: 300px;
+}
+
+.songList .col-md-4 {
+  margin-bottom: 30px;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.scHeader {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 36px;
+  padding: 10px;
+  background-color: var(--soundCloud);
+  color: var(--mainColor);
+}
+
+.blogTeaser {
+  background-color: color(var(--mainColor) alpha(-20%));
+  margin: 10px;
+  font-size: 1.4em;
+  transition: 0.3s;
+  max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  & .blogHeader {
+    max-width: 100%;
+    color: var(--fontDefault);
+    display: inline-block;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  & .blogImage {
+    min-width: 270px;
+    min-height: 270px;
+    background-size: 270px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &:hover {
+    background-color: var(--mainColor);
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
+  }
+}
+
+.blogArticle {
+  background-color: color(var(--mainColor) alpha(-20%));
+  padding-left: 0;
+  padding-right: 0;
+  overflow: auto;
+}
+
+.articleCover {
+  padding: 15px;
+  width: 100%;
+  height: inherit;
+  background-color: var(--mainColor);
+  display: inline-block;
+  & img {
+    max-width: 270px;
+    display: block;
+    margin: auto;
+  }
+}
+
+.articleMain {
+  margin: auto;
+  display: inline-block;
+  vertical-align: top;
+  padding: 15px;
+}
+
+.articleContent {
+  font-size: 1.4em;
+  line-height: 2em;
+  text-align: justify;
+  & div div {
+    margin-bottom: 20px;
+  }
+}
+
+.articleHeader {
+  font-size: 2em;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.buttonWrapper {
+  position: relative;
+  height: 80px;
+  margin-top: 10px;
+  & .btn {
+    margin-right: 10px;
+    border-radius: 0;
+    max-width: 200px;
+    min-width: 100px;
+    min-height: 70px;
+    font-size: 1.5em;
+  }
+}
+
+.dateDiv {
+  font-size: 1.2em;
+  margin: 10px;
+}
+
+@media (min-width: 590px) {
+  .blogTeaser {
+    max-width: none;
+  }
+  .blogHeader {
+    max-width: 50% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  main{
+    padding-top: 0px;
+  }
+
+  .articleMain {
+    max-width: 60%;
+  }
+
+  .blogArticle > div{
+    display: flex;
+    overflow: auto;
+  }
+
+  .articleCover {
+    width: inherit;
+    align-items: stretch;
+    & img {
+      display: inline-block;
+    }
+  }
+
+  .blogTeaser {
+    font-size: 2em;
+  }
+
   .mainWelcomeDiv {
       position: absolute;
       top: 110;
@@ -80,69 +274,4 @@
   .contactElement {
     margin: 30px !important;
   }
-}
-
-.mainContainer {
-  padding-top: 70px;
-  width: 100%;
-  padding-left: 0px;
-  padding-right: 0px;
-  & .soundcloudContainer {
-    background-color: var(--soundCloud);
-    width: 300px;
-    margin: auto;
-  }
-  & h1 {
-    position: fixed;
-    text-align: center;
-    width: inherit;
-    color: var(--mainColor);
-    margin-top: -0.5%;
-  }
-}
-
-.contactsRow {
-  text-align: center;
-  font-size: 36px;
-}
-
-.contactElement {
-  display: inline-block;
-  margin: 10px;
-  & i {
-    transition: 0.2s;
-  }
-  &:hover i{
-    color: var(--lowerBlue);
-  }
-}
-
-.lazyLoad {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-image: url('../../images/loading.gif');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 50px;
-  height: 300px;
-  width: 300px;
-}
-
-.songList .col-md-4 {
-  margin-bottom: 30px;
-  text-align: center;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.scHeader {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 36px;
-  padding: 10px;
-  background-color: var(--soundCloud);
-  color: var(--mainColor);
 }

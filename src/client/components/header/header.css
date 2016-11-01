@@ -2,6 +2,7 @@
 
 .navbar {
   margin-bottom: 0;
+  border: 0;
 }
 
 .container>.navbar-header {
@@ -13,10 +14,6 @@
   border-color: transparent;
 }
 
-.navbar-default .navbar-nav>li>a {
-  color: var(--headerDefault);
-}
-
 .navbar-default .navbar-nav>li>a:hover {
   color: var(--mainColor);
 }
@@ -25,4 +22,29 @@
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
   background-color: var(--mainColor);
+}
+
+.navbar-default .navbar-toggle {
+  border-color: var(--fontDefault);
+  & .icon-bar {
+    background-color: var(--fontDefault);
+  }
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.navbar-collapse {
+  background-color: var(--fontDefault);
+}
+
+@media (min-width: 768px){
+  .navbar-collapse {
+    background-color: transparent;
+  }
+
+  .navbar-default .navbar-nav>li>a {
+    color: var(--headerDefault);
+  }
 }

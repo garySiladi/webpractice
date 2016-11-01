@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Button} from 'react-bootstrap';
+import {Grid, Row, Col, Image, Button} from 'react-bootstrap';
 import BlogPostList from '../components/blogPostList.js';
 import {bindActionCreators} from 'redux';
 import {fetchBlogPostsPage} from '../actions/actions.js';
@@ -35,22 +35,36 @@ class MainBlogposts extends React.Component {
   changeToPrev(){
     this.state.pageNumber--;
     this.props.fetchBlogPostsPage(this.state.pageNumber);
+    TopscrollTo();
   }
 
   changeToNext(){
     this.state.pageNumber++;
     this.props.fetchBlogPostsPage(this.state.pageNumber);
+    TopscrollTo();
   }
 
   render(){
     return(
       <div>
         {this.props.blogPages ? <BlogPostList data={this.props.blogPages}/> : ''}
-        {this.checkPrev() ? <Button onClick={(event)=>this.changeToPrev(event)}>Prev</Button> : ''}
-        {this.checkNext() ? <Button onClick={(event)=>this.changeToNext(event)}>Next</Button> : ''}
+        <Grid className="buttonWrapper">
+          {this.checkPrev() ? <Button bsSize="large" onClick={(event)=>this.changeToPrev(event)}>Previous</Button> : ''}
+          {this.checkNext() ? <Button bsSize="large" onClick={(event)=>this.changeToNext(event)}>Next</Button> : ''}
+        </Grid>
       </div>
     );
   }
+}
+
+function TopscrollTo() {
+if(window.scrollY!=0)
+{
+    setTimeout(function() {
+       window.scrollTo(0,window.scrollY-7);
+        TopscrollTo();
+    }, 1);
+   }
 }
 
 function mapStateToProps(state) {

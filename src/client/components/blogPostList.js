@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Grid, Row, Col, Image } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 class BlogPostList extends React.Component {
@@ -7,23 +7,31 @@ class BlogPostList extends React.Component {
   renderBlogs(){
     let bloglist = [];
     this.props.data.map(function (blog,i) {
-              if (i<5)
+              if (blog.id){
+                const style = {
+                  backgroundImage: 'url(' + blog.image + ')',
+                  backgroundPosition: 'center'
+                }
                 bloglist.push(
-                  <ListGroupItem key={i}>
-                    <Link to={`/blogs/${blog.id}`}>{blog.title}{blog.date}</Link>
-                  </ListGroupItem>
+                  <Row key={i} className="blogTeaser">
+                    <Link to={`/blogs/${blog.id}`}>
+                      <Col>
+                        <div className="blogImage" style={style}></div>
+                        <div className="blogHeader">{blog.title}</div>
+                      </Col>
+                    </Link>
+                  </Row>
                 );
+              }
             });
     return bloglist;
   }
 
   render(){
     return(
-      <div>
-        <ListGroup>
-          {this.renderBlogs()}
-        </ListGroup>
-      </div>
+      <Grid>
+        {this.renderBlogs()}
+      </Grid>
     );
   }
 }

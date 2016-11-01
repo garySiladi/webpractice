@@ -9,18 +9,22 @@ const contacts = [
   {url: 'https://github.com/garySiladi', class: 'fa fa-github-square'}
 ];
 
-const MainAbout = () => (
-    <div className="mainWelcomeDiv">
-      <div className="welcomeDiv">
-        <Image src={require('../images/logo.png')}/>
-        <p><span>GARY</span><span>SILADI</span></p>
-      </div>
-      <div className="contactPart">
-        <div>
-          <ContactList contacts={contacts}/>
+class MainAbout extends React.Component {
+  render(){
+    return(
+      <div className="mainWelcomeDiv">
+        <div className="welcomeDiv">
+          <Image src={require('../images/logo.png')}/>
+          <p><span>GARY</span><span>SILADI</span></p>
+        </div>
+        <div className="contactPart">
+          <div>
+            <ContactList contacts={contacts}/>
+          </div>
         </div>
       </div>
-    </div>
-);
+    );
+  }
+}
 
 export default MainAbout;
