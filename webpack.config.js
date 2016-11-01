@@ -22,6 +22,11 @@ var config = {
     filename: 'bundle.js',
     publicPath: '/'
   },
+  externals: {
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+  },
   module: {
          loaders: [{
              test: /\.jsx?$/,
@@ -29,7 +34,7 @@ var config = {
              loader: 'babel',
              query:
               {
-                  presets:['es2015', 'react']
+                  presets:['es2015', 'react', 'airbnb']
               }
          },
          {

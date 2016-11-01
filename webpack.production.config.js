@@ -14,6 +14,13 @@ module.exports = {
     filename: '[name]-[hash].min.js',
     publicPath: '/'
   },
+  resolve: {
+    modulesDirectories: ["./node_modules", "./node_modules/babel"]
+  },
+
+  resolveLoader: {
+    root: path.resolve(__dirname, 'node_modules')
+  },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
@@ -35,13 +42,18 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ],
+  externals: {
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+  },
   module: {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'babel',
       query: {
-        "presets": ["es2015", "react"]
+        "presets": ["es2015", "react", "airbnb"]
       }
     }, {
       test: /\.json?$/,

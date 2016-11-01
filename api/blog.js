@@ -12,7 +12,7 @@ router.get('/page/:pageNumber', function(req, res) {
 });
 
 router.get('/blog/:blogId', function(req, res) {
-  const blog = getBlogById(req.params.blogId);
+  const blog = getBlogById(req.params.blogId,blogs);
   res.send(blog);
 });
 
@@ -20,10 +20,9 @@ function sortByDate(b, a){
   return new Date(a.date).getTime() - new Date(b.date).getTime();
 }
 
-function getBlogById(id){
+function getBlogById(id,data){
   let answer = null
-  blogs.map(function (blog) {
-            // console.log(id);
+  data.map(function (blog) {
             if (blog.id == id) {
               answer = blog;
             }

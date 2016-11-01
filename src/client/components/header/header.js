@@ -2,7 +2,6 @@ import React from 'react';
 import { Navbar, Nav, Image, NavItem } from 'react-bootstrap';
 import { browserHistory, Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
-require("./header.css");
 
 const tabNames = [
     "About",
