@@ -9,9 +9,7 @@ import Blog from '../blog.js';
 require('./app.css');
 
 const App = () => (
-  <Router
-    history={browserHistory}
-    >
+  <Router history={hashHistory}>
     <Route component={MainLayout}>
       <Route path="/" component={MainAbout}></Route>
       <Route path="portfolio" component={MainProjects}></Route>
