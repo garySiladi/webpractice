@@ -1,32 +1,49 @@
 const router = require('express').Router();
-const blogs = require('../blogs/blogs.json');
+const path = require('path');
+const blogs = require('./blogs.json');
+const fs = require('fs');
+const assets = path.join(__dirname, '../assets');
 
 router.get('/page/:pageNumber', function(req, res) {
   const n = req.params.pageNumber;
-  let slicedObject = blogs.sort(sortByDate);
-  slicedObject = slicedObject.slice((n-1)*5,n*5);
-  if ((blogs.sort(sortByDate))[n*5])
-  slicedObject.push(true);
-  else slicedObject.push(false);
-  res.send(slicedObject);
+  let articles = fs.readdirSync(assets);
+  articles.reverse();
+  articles = articles.slice((n-1)*5,n*5+1);
+  articles = fillData(articles);
+  res.send(articles);
 });
 
 router.get('/blog/:blogId', function(req, res) {
-  const blog = getBlogById(req.params.blogId,blogs);
+  const blog = getBlogById(req.params.blogId);
   res.send(blog);
 });
 
-function sortByDate(b, a){
-  return new Date(a.date).getTime() - new Date(b.date).getTime();
+function fillData(files){
+  let collection = [];
+  files.forEach( function(file,index) {
+    if (index != 5) {
+      let articleData = fs.readFileSync(path.join(assets,file));
+      articleData = JSON.parse(articleData);
+      articleData["date"] = file.slice(0, -5);
+      collection.push(articleData);
+    }
+  });
+  if (files[5]) collection.push(true);
+  else collection.push(false);
+  return collection;
 }
 
-function getBlogById(id,data){
-  let answer = null
-  data.map(function (blog) {
-            if (blog.id == id) {
-              answer = blog;
-            }
-          });
+function getBlogById(id){
+  let articles = fs.readdirSync(assets);
+  let answer = null;
+  articles.forEach( function(file,index) {
+    if (index != 5) {
+      let articleData = fs.readFileSync(path.join(assets,file));
+      articleData = JSON.parse(articleData);
+      articleData["date"] = file.slice(0, -5);
+      if (articleData.id == id) answer = articleData;
+    }
+  });
   return answer;
 }
 

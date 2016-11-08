@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import {expect} from 'chai';
 var chai = require('chai');
 var assert = chai.assert;
-const blogs = require('../blogs/blogs.json');
+const blogs = require('../api/blogs.json');
 import EmbedTrack from '../src/client/components/soundcloudTrack.js';
 import Header from '../src/client/components/header/header.js'
 
